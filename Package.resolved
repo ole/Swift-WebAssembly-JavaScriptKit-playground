@@ -1,0 +1,24 @@
+{
+  "originHash" : "7118474d46a96a6346d8dd2fcd6b55f28400cd74b3ebf6e7ccacf4230ca38d80",
+  "pins" : [
+    {
+      "identity" : "javascriptkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftwasm/JavaScriptKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "985dccf6413cf6884f1ef3d1dbce1db5d062e68c"
+      }
+    },
+    {
+      "identity" : "swift-dlmalloc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftwasm/swift-dlmalloc",
+      "state" : {
+        "revision" : "0c3838252811e5cbda50c31f6f8a289b95207b17",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 3
+}
