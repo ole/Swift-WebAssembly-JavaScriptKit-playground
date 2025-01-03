@@ -3,6 +3,10 @@
 
 import PackageDescription
 
+// Copied (with slight modifications) from Simon Leeb
+// Source: https://github.com/sliemeobn/elementary-dom/blob/85e6aa4f35cfd4920edb767014fc58bed25e7fd6/Package.swift
+// More info: https://forums.swift.org/t/web-app-with-embedded-swift-poc-demo/75486
+
 let shouldBuildForEmbedded =
     Context.environment["JAVASCRIPTKIT_EXPERIMENTAL_EMBEDDED_WASM"].flatMap(Bool.init) ?? false
 
