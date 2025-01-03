@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Swift WebAssembly</title>
+  </head>
+  <body>
+    <script type="module">
+      const decoder = new TextDecoder();
+
+      const importObject = {
+        console: { log: (address, byteCount) => {
+          const string = module.instance.exports.memory.buffer.slice(address, address + byteCount);
+          console.log(decoder.decode(string));
+        }},
+      };
+      const module = await WebAssembly.instantiateStreaming(fetch('app.wasm'), importObject);
+      module.instance.exports.hello();
+    </script>
+  </body>
+</html>
