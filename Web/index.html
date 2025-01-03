@@ -6,16 +6,20 @@
   </head>
   <body>
     <script type="module">
-      const decoder = new TextDecoder();
+      const javaScriptKit = await import("/javascript-kit/index.mjs")
+      const swift = new javaScriptKit.SwiftRuntime()
 
+      const decoder = new TextDecoder()
       const importObject = {
-        console: { log: (address, byteCount) => {
-          const string = module.instance.exports.memory.buffer.slice(address, address + byteCount);
-          console.log(decoder.decode(string));
-        }},
-      };
-      const module = await WebAssembly.instantiateStreaming(fetch('app.wasm'), importObject);
-      module.instance.exports.hello();
+        javascript_kit: swift.wasmImports
+      }
+      const { instance, module } = await WebAssembly.instantiateStreaming(
+        fetch("app.wasm"), 
+        importObject
+      )
+      swift.setInstance(instance)
+      swift.main()
+      instance.exports.run()
     </script>
   </body>
 </html>

@@ -1,21 +1,21 @@
-#if arch(wasm32)
-@_extern(wasm, module: "console", name: "log")
-@_extern(c)
-func consoleLog(address: Int, byteCount: Int)
-#endif
+import JavaScriptKit
 
-func print(_ string: StaticString) {
-    #if arch(wasm32)
-        consoleLog(
-            address: Int(bitPattern: string.utf8Start),
-            byteCount: string.utf8CodeUnitCount
-        )
-    #else
-        Swift.print(string)
-    #endif
+@_expose(wasm, "run")
+func run() {
+    do {
+        try runThrowing()
+    } catch {
+        log("Swift error thrown: \(error)")
+    }
 }
 
-@_expose(wasm, "hello")
-func hello() {
-    print("Hello, World!")
+func runThrowing() throws {
+    log("Hello from Swift!")
+    let document = JSObject.global.document
+
+    var divElement = document.createElement("div")
+    divElement.innerText = "Hello from Swift!"
+    _ = document.body.appendChild(divElement)
+
+    _ = JSObject.global.alert!("Swift is running in the browser!")
 }
