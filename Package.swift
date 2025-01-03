@@ -36,14 +36,14 @@ let linkerSettings: [LinkerSetting]? = if shouldBuildForEmbedded {
 }
 
 let package = Package(
-    name: "RenderToCanvas",
+    name: "SwiftWasmJavaScriptKitPlayground",
     dependencies: [
         .package(url: "https://github.com/swiftwasm/swift-dlmalloc", from: "0.1.0"),
         .package(url: "https://github.com/swiftwasm/JavaScriptKit", branch: "main"),
     ],
     targets: [
         .executableTarget(
-            name: "RenderToCanvas",
+            name: "WasmLib",
             dependencies: [
                 .product(name: "JavaScriptKit", package: "JavaScriptKit"),
             ] + extraDependencies,

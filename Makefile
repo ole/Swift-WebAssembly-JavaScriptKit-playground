@@ -13,9 +13,9 @@ wasmlib:
 			--toolchain "${TOOLCHAIN_DIR}" \
 			--triple wasm32-unknown-none-wasm \
 			-c release \
-			--product RenderToCanvas
+			--product WasmLib
 	# Copy the Wasm module to website directory.
-	cp .build/wasm32-unknown-none-wasm/release/RenderToCanvas.wasm Web/app.wasm
+	cp .build/wasm32-unknown-none-wasm/release/WasmLib.wasm Web/app.wasm
 	# Optimize the Wasm module.
 	type -p wasm-opt && wasm-opt -Os --strip-debug Web/app.wasm -o Web/app.wasm || :
 	# Copy the JavaScript glue code to website directory.
