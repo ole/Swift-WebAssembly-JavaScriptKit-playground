@@ -12,6 +12,7 @@ wasmlib:
 		swift build \
 			--toolchain "${TOOLCHAIN_DIR}" \
 			--triple wasm32-unknown-none-wasm \
+			-Xswiftc -Osize \
 			-c release \
 			--product WasmLib
 	# Copy the Wasm module to website directory.
