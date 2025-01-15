@@ -2,6 +2,7 @@ TOOLCHAIN_DIR := ${HOME}/Library/Developer/Toolchains/swift-latest.xctoolchain
 
 # Build instructions adapted from Simon Leeb:
 # https://forums.swift.org/t/web-app-with-embedded-swift-poc-demo/75486
+.PHONY: wasmlib
 wasmlib:
 	echo "Using toolchain dir: ${TOOLCHAIN_DIR}"
 	# Activate Swift development toolchain and build the Wasm module.
@@ -25,6 +26,7 @@ wasmlib:
 	chmod u+w Web/javascript-kit/index.mjs
 
 # Launch a local web server to test the WebAssembly module.
+.PHONY: serve
 serve:
 	cd Web && \
 	python3 -m http.server 8001
