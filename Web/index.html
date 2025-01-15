@@ -13,8 +13,6 @@
     <script type="module">
       const javaScriptKit = await import("/javascript-kit/index.mjs")
       const swift = new javaScriptKit.SwiftRuntime()
-
-      const decoder = new TextDecoder()
       const importObject = {
         javascript_kit: swift.wasmImports
       }
