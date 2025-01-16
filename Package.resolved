@@ -1,5 +1,5 @@
 {
-  "originHash" : "7118474d46a96a6346d8dd2fcd6b55f28400cd74b3ebf6e7ccacf4230ca38d80",
+  "originHash" : "174f0f74bcff16e611dc05815f503172a719d8d5b5aea3d4a3f35ca03eaae97a",
   "pins" : [
     {
       "identity" : "javascriptkit",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/swiftwasm/JavaScriptKit",
       "state" : {
         "branch" : "main",
-        "revision" : "985dccf6413cf6884f1ef3d1dbce1db5d062e68c"
+        "revision" : "91350448aa5302269ee73664b1c32cb21ea6820c"
       }
     },
     {
